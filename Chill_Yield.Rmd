@@ -1,0 +1,130 @@
+---
+title: "Chill portions and yield"
+author: Katja Schiffers^a^, Cory Whitney^a^, Eduardo Fernandez^a^ and Eike Luedeling^a^ <br /> <small>^a^INRES-Horticultural Sciences, University of Bonn, Auf dem Huegel 6, 53121 Bonn, Germany <small/>
+output:
+    html_document:
+bibliography: packages.bib
+---
+<!-- Spelling -->
+<!-- The ABC √ option (upper right on the Rmarkdown console)-->
+
+<!-- Grammar -->
+<!-- devtools::install_github("ropenscilabs/gramr") -->
+<!-- run_grammar_checker("HighDimensionalData.rmd”) -->
+
+<!-- Print pdf and word versions -->
+<!-- rmarkdown::render("Chill_Yield.Rmd", output_format = "pdf_document") -->
+<!-- rmarkdown::render("Chill_Yield.Rmd", output_format = "word_document") -->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#packages in alphabetic order
+library(bayesplot)
+library(chillR)
+library(devtools)
+library(dplyr)
+library(ggplot2)
+library(ggpubr)
+library(ggridges)
+library(ggstance)
+library(graphics)
+#devtools::install_github("hortibonn/pasitR")
+library(pasitR)
+library(plyr)
+library(reshape)
+library(tidyverse) #tidyverse includes a number of useful packages
+```
+
+```{r, warning=FALSE, include = FALSE}
+#Automatically write R package citation entries to a .bib file
+knitr::write_bib(c(.packages(), 
+                   'bayesplot', 
+                   'chillR',
+                   'decisionSupport',
+                   'dplyr',
+                   'ethnobotanyR',
+                   'ggplot2', 
+                   'ggridges', 
+                   'graphics',
+                   'plyr', 
+                   'reshape', 
+                   'tidyverse'), 'packages.bib')
+```
+
+# NOTES
+
+Often data is limited 
+
+1. Lack of data
+1. How can we go about making assessments when we hve limited data?
+1. when attempting to assess the relationships between temperature and yield
+1. perhaps this data limitation does not need to hinder our assessment
+1. Maybe a lot of data is not necessary
+1. embrace uncertainty
+1. preciseness is pointless
+1. far into the future we have no data. We need to use uncertainty
+1. making forecasts
+
+
+We use the pasitR package [@R-pasitR] in the R programming language [@R-base].
+
+Create random chill and yield data using `sample()`. 
+
+```{r}
+chill <- sample(x = 1:50, size = 20, replace = TRUE)
+yield <- sample(x = 1000:5000, size = 20, replace = TRUE)
+```
+
+Using `chillscatter()` create a chill portions (x) and yield (y) scatter plot with associated and estimated densities with loess smooth linear fits density curves. Plot made with the `scatter.hist()` function in the `plyr()` package [@R-plyr].  
+
+```{r, fig.width=4, fig.height=4}
+pasitR::chillscatter(chill, yield)
+```
+
+Use `chillkernel()` or another type of graphical representation of the same relationship. `chillkernel()` performs a two-dimensional kernel density estimation for yield and chill using the `kde2d()` function in the `MASS()` package [@R-MASS]. The function produces a matrix of the estimated density (z) of yield (y) and chill (x). As the density function restricts the shape of the kernel to a bivariate normal kernel, it looks slightly different compared to the scatter plot estimates above.
+
+```{r, fig.width=4, fig.height=4}
+pasitR::chillkernel(chill, yield)
+```
+
+`chillkernel()` shows a density surface plot of chill portions (x) and yield (y). The legend shows the value for the estimated density (z). The plot is made with the `filled.contour()` function of the `graphics()` package [@R-graphics].
+
+In `chillkernel()` the density (z) over the entire plot integrates to one, and therefore represents the relative probability of an observation (yield along y-axis) given a specific chill portion (along x-axis). 
+
+## Estimated yield given the expected chill
+
+`chillkernelslice()` calculates the estimated yield given the expected chill, based on a slice of 'z' from the Kernel density calcualted with `chillkernel()`. The `expectedchill` parameter is set to 30.
+
+```{r, fig.width=4, fig.height=4}
+pasitR::chillkernelslice(chill, yield, expectedchill = 30)
+```
+
+`chillkernelslice()` plots the probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). Since this is a cut through the density kernel `chillkernel()`, which integrates to 1, the probability values are relative, not absolute measures.
+
+## Chill portion intervals
+
+`chillviolin()` determines different possible chill portion intervals by calculating the optimal interval width for chill portions using the `IQR()` function in the `stats()` package, after the Freedman-Diaconis rule (IQR = interquartile range) [@R-base].
+`Optimal interval width for our sample = 2 * interquartile range for our sample / (total number of observations for the interquartile range for our sample)^(1/3)`
+
+```{r, fig.width=10, fig.height=4}
+pasitR::chillviolin(chill, yield)
+```
+
+`chillviolin()` shows violin plots of chill portions (x) and yield (y) with six different intervals of chill portions. Plot made with `ggplot2()` [@R-ggplot2].
+
+## Probability of yield given chill
+
+`chillkernelslicerange()` The chill portion intervals, optimized interquartile ranges shown in `chillviolin()` can be used to select a range to slice from the density kernel `chillkernel()` as was doen for a single chill value in `chillkernelslice()`. Here we set the maximum chill to 20 and the minimum to 10.
+
+```{r, fig.width=4, fig.height=4}
+pasitR::chillkernelslicerange(chill, yield, 10, 20)
+```
+
+`chillkernelslicerange()` plots the probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). As with `chillkernelslice()` the probability values shown are relative, not absolute measures. They are the result of cuts through the density kernel `chillkernel()`, which integrates to 1. 
+
+# section
+
+The functions here closely follow chillR [@R-chillR] and decisionSupport [@R-decisionSupport].
+
+## References
