@@ -63,9 +63,7 @@ Often data is limited
 1. Maybe a lot of data is not necessary
 1. embrace uncertainty
 1. preciseness is pointless
-1. far into the future we have no data. We need to use uncertainty
-1. making forecasts
-
+1. far into the future we have no data. We necesarily have uncertainty in our model forecasts
 
 We use the pasitR package [@R-pasitR] in the R programming language [@R-base].
 
