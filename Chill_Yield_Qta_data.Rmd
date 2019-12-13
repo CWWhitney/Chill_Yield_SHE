@@ -1,5 +1,5 @@
 ---
-title: "Chill portions and yield"
+title: "Chill portions and yield using actual data"
 author: Katja Schiffers^a^, Cory Whitney^a^, Eduardo Fernandez^a^ and Eike Luedeling^a^ <br /> <small>^a^INRES-Horticultural Sciences, University of Bonn, Auf dem Huegel 6, 53121 Bonn, Germany <small/>
 output:
     html_document:
@@ -13,8 +13,8 @@ bibliography: packages.bib
 <!-- run_grammar_checker("HighDimensionalData.rmd”) -->
 
 <!-- Print pdf and word versions -->
-<!-- rmarkdown::render("Chill_Yield.Rmd", output_format = "pdf_document") -->
-<!-- rmarkdown::render("Chill_Yield.Rmd", output_format = "word_document") -->
+<!-- rmarkdown::render("Chill_Yield_Qta_data.Rmd", output_format = "pdf_document") -->
+<!-- rmarkdown::render("Chill_Yield_Qta_data.Rmd", output_format = "word_document") -->
 
 
 ```{r setup, include=FALSE}
@@ -29,6 +29,7 @@ library(ggpubr)
 library(ggridges)
 library(ggstance)
 library(graphics)
+library(kableExtra)
 #devtools::install_github("hortibonn/pasitR")
 library(pasitR)
 library(plyr)
@@ -49,44 +50,69 @@ knitr::write_bib(c(.packages(),
                    'graphics',
                    'plyr', 
                    'reshape', 
-                   'tidyverse'), 'packages.bib')
+                   'tidyverse',
+                   'kableExtra',
+                   'MASS'), 'packages.bib')
 ```
 
-# NOTES
+## Yield and chill data
 
-Often data is limited 
+In this file we applied the procedure for estimating yield as a function of chill accumulation. We used data provided by the experimental orchard of the School of Agronomy at the Pontificia Universidad Catolica de Valparaiso. The data set contains yield records (in tons per hectare) for 8 seasons (2010 to 2017) in two sweet cherry varieties (Lapins and Brooks).
 
-1. Lack of data
-2. How can we go about making assessments when we have limited data?
-3. when attempting to assess the relationships between temperature and yield
-4. perhaps this data limitation does not need to hinder our assessment
-5. Maybe a lot of data is not necessary
-6. embrace uncertainty
-7. preciseness is pointless
-8. far into the future we have no data. We necesarily have uncertainty in our model forecasts
+```{r, echo = FALSE}
 
-We use the pasitR package [@R-pasitR] in the R programming language [@R-base].
+data <- read.csv("./data/Yield_and_Chill_Quillota.csv")
 
-Create random chill and yield data using `sample()`. 
+# Split the data by variety to ease the process
 
-```{r}
-chill <- sample(x = 1:50, size = 20, replace = TRUE)
-yield <- sample(x = 1000:5000, size = 20, replace = TRUE)
+lapins <- data[data$Variety == "Lapins", ]
+
+brooks <- data[data$Variety == "Brooks", ]
+
+weather <- read.csv("./data/weather_data.csv")[2:9]
+
+knitr::kable(data) %>% kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
 ```
 
-Using `chillscatter()` create a chill portions (x) and yield (y) scatter plot with associated and estimated densities with loess smooth linear fits density curves. Plot made with the `scatter.hist()` function in the `plyr()` package [@R-plyr].  
+Weather data was obtained from a previous project (chill models comparison) from a weather station placed in the orchard.
 
-```{r, fig.width=4, fig.height=4}
-pasitR::chillscatter(chill, yield)
+```{r, echo = FALSE}
+knitr::kable(head(weather, 10)) %>% kableExtra::kable_styling(bootstrap_options = c("striped", "hover"),
+                                                              full_width = FALSE)
+```
+
+Using `tempResponse_daily_list()` in the `chillR()` package [@R-chillR] compute the chill accumulation for each season. In this example we defined the chilling season as the period between 1^st^ of May and 31^st^ of August.
+
+```{r, echo = FALSE}
+chill <- chillR::tempResponse_daily_list(weather, latitude = -32.895, Start_JDay = 121, End_JDay = 243,
+                                         models = list(Chill_Portions = Dynamic_Model))[[1]]
+
+knitr::kable(chill) %>% kableExtra::kable_styling(bootstrap_options = c("striped", "hover"),
+                                                  full_width = F)
+
+lapins["Chill_Portions"] <- chill$Chill_Portions
+
+brooks["Chill_Portions"] <- chill$Chill_Portions
+
+```
+
+Using `chillscatter()` create a chill portions (x) and yield (y) scatter plot with associated and estimated densities with loess smooth linear fits density curves. Plot made with the `scatter.hist()` function in the `plyr()` package [@R-plyr]. The following scatter plots show the outputs for Lapins (left) and Brooks (right) varieties.  
+
+```{r, echo = F, results = F,fig.width = 4, fig.height = 4, fig.show = "hold"}
+pasitR::chillscatter(lapins$Chill_Portions, lapins$Yield)
+
+pasitR::chillscatter(brooks$Chill_Portions, brooks$Yield)
 ```
 
 Use `chillkernel()` or another type of graphical representation of the same relationship. `chillkernel()` performs a two-dimensional kernel density estimation for yield and chill using the `kde2d()` function in the `MASS()` package [@R-MASS]. The function produces a matrix of the estimated density (z) of yield (y) and chill (x). As the density function restricts the shape of the kernel to a bivariate normal kernel, it looks slightly different compared to the scatter plot estimates above.
 
-```{r, fig.width=4, fig.height=4}
-pasitR::chillkernel(chill, yield)
+```{r, echo = F, results = F, fig.width = 4, fig.height = 4, fig.show = "hold"}
+pasitR::chillkernel(lapins$Chill_Portions, lapins$Yield)
+
+pasitR::chillkernel(brooks$Chill_Portions, brooks$Yield)
 ```
 
-`chillkernel()` shows a density surface plot of chill portions (x) and yield (y). The legend shows the value for the estimated density (z). The plot is made with the `filled.contour()` function of the `graphics()` package [@R-graphics].
+`chillkernel()` shows a density surface plot of chill portions (x) and yield (y). The legend shows the value for the estimated density (z). The plot is made with the `filled.contour()` function of the `graphics()` package [@R-base].
 
 In `chillkernel()` the density (z) over the entire plot integrates to one, and therefore represents the relative probability of an observation (yield along y-axis) given a specific chill portion (along x-axis). 
 
@@ -94,8 +120,10 @@ In `chillkernel()` the density (z) over the entire plot integrates to one, and t
 
 `chillkernelslice()` calculates the estimated yield given the expected chill, based on a slice of 'z' from the Kernel density calcualted with `chillkernel()`. The `expectedchill` parameter is set to 30.
 
-```{r, fig.width=4, fig.height=4}
-pasitR::chillkernelslice(chill, yield, expectedchill = 30)
+```{r, echo = F, results = F, fig.width = 4, fig.height = 4}
+pasitR::chillkernelslice(lapins$Chill_Portions, lapins$Yield, expectedchill = 30)
+
+pasitR::chillkernelslice(brooks$Chill_Portions, brooks$Yield, expectedchill = 30)
 ```
 
 `chillkernelslice()` plots the probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). Since this is a cut through the density kernel `chillkernel()`, which integrates to 1, the probability values are relative, not absolute measures.
@@ -105,8 +133,10 @@ pasitR::chillkernelslice(chill, yield, expectedchill = 30)
 `chillviolin()` determines different possible chill portion intervals by calculating the optimal interval width for chill portions using the `IQR()` function in the `stats()` package, after the Freedman-Diaconis rule (IQR = interquartile range) [@R-base].
 `Optimal interval width for our sample = 2 * interquartile range for our sample / (total number of observations for the interquartile range for our sample)^(1/3)`
 
-```{r, fig.width=10, fig.height=4}
-pasitR::chillviolin(chill, yield)
+```{r, echo = F, results = F, fig.width = 4, fig.height = 4}
+pasitR::chillviolin(lapins$Chill_Portions, lapins$Yield)
+
+pasitR::chillviolin(brooks$Chill_Portions, brooks$Yield)
 ```
 
 `chillviolin()` shows violin plots of chill portions (x) and yield (y) with six different intervals of chill portions. Plot made with `ggplot2()` [@R-ggplot2].
@@ -115,8 +145,10 @@ pasitR::chillviolin(chill, yield)
 
 `chillkernelslicerange()` The chill portion intervals, optimized interquartile ranges shown in `chillviolin()` can be used to select a range to slice from the density kernel `chillkernel()` as was doen for a single chill value in `chillkernelslice()`. Here we set the maximum chill to 20 and the minimum to 10.
 
-```{r, fig.width=4, fig.height=4}
-pasitR::chillkernelslicerange(chill, yield, 10, 20)
+```{r, echo = F, result = F, fig.width = 4, fig.height = 4}
+pasitR::chillkernelslicerange(lapins$Chill_Portions, lapins$Yield, 30, 50)
+
+pasitR::chillkernelslicerange(brooks$Chill_Portions, brooks$Yield, 30, 50)
 ```
 
 `chillkernelslicerange()` plots the probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). As with `chillkernelslice()` the probability values shown are relative, not absolute measures. They are the result of cuts through the density kernel `chillkernel()`, which integrates to 1. 
@@ -124,5 +156,6 @@ pasitR::chillkernelslicerange(chill, yield, 10, 20)
 # section
 
 The functions here closely follow chillR [@R-chillR] and decisionSupport [@R-decisionSupport].
+
 
 ## References
