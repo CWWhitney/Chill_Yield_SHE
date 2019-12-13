@@ -145,7 +145,7 @@ pasitR::chillviolin(brooks$Chill_Portions, brooks$Yield)
 
 `chillkernelslicerange()` The chill portion intervals, optimized interquartile ranges shown in `chillviolin()` can be used to select a range to slice from the density kernel `chillkernel()` as was doen for a single chill value in `chillkernelslice()`. Here we set the maximum chill to 20 and the minimum to 10.
 
-```{r, echo = F, result = F, fig.width = 4, fig.height = 4}
+```{r, echo = F, results = F, fig.width = 4, fig.height = 4, fig.show = "hold"}
 pasitR::chillkernelslicerange(lapins$Chill_Portions, lapins$Yield, 30, 50)
 
 pasitR::chillkernelslicerange(brooks$Chill_Portions, brooks$Yield, 30, 50)
@@ -153,7 +153,7 @@ pasitR::chillkernelslicerange(brooks$Chill_Portions, brooks$Yield, 30, 50)
 
 `chillkernelslicerange()` plots the probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). As with `chillkernelslice()` the probability values shown are relative, not absolute measures. They are the result of cuts through the density kernel `chillkernel()`, which integrates to 1. 
 
-# section
+# Section
 
 The functions here closely follow chillR [@R-chillR] and decisionSupport [@R-decisionSupport].
 
