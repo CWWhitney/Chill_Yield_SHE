@@ -49,23 +49,13 @@ knitr::write_bib(c(.packages(),
                    'graphics',
                    'plyr', 
                    'reshape', 
-                   'tidyverse'), 'packages.bib')
+                   'tidyverse',
+                   'MASS'), 'packages.bib')
 ```
 
 # NOTES
 
-Often data is limited 
-
-1. Lack of data
-2. How can we go about making assessments when we have limited data?
-3. when attempting to assess the relationships between temperature and yield
-4. perhaps this data limitation does not need to hinder our assessment
-5. Maybe a lot of data is not necessary
-6. embrace uncertainty
-7. preciseness is pointless
-8. far into the future we have no data. We necesarily have uncertainty in our model forecasts
-
-We use the pasitR package [@R-pasitR] in the R programming language [@R-base].
+Often data is limited when assessing the relationship between climate change and yield. Despite this lack of data we are nevertheless required to make assessments and produce useful projections for farmers and decision makers. Perhaps this data limitation does not need to hinder our abilities to assess the relationships between temperature and yield. For course assessments a lot of data may not be necessary. Here we show a method whereby we can embrace the inherint uncertainty in such assessments to overcome the need for preciseness. After all far into the future we have no data. We necesarily have uncertainty in our model forecasts. We use the pasitR package [@R-pasitR] in the R programming language [@R-base].
 
 Create random chill and yield data using `sample()`. 
 
@@ -86,7 +76,7 @@ Use `chillkernel()` or another type of graphical representation of the same rela
 pasitR::chillkernel(chill, yield)
 ```
 
-`chillkernel()` shows a density surface plot of chill portions (x) and yield (y). The legend shows the value for the estimated density (z). The plot is made with the `filled.contour()` function of the `graphics()` package [@R-graphics].
+`chillkernel()` shows a density surface plot of chill portions (x) and yield (y). The legend shows the value for the estimated density (z). The plot is made with the `filled.contour()` function of the `graphics()` package [@R-base].
 
 In `chillkernel()` the density (z) over the entire plot integrates to one, and therefore represents the relative probability of an observation (yield along y-axis) given a specific chill portion (along x-axis). 
 
