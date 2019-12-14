@@ -105,7 +105,7 @@ Sciences, University of Bonn, Auf dem Huegel 6, 53121 Bonn, Germany}
 \maketitle
 
 Data is often limited for assessing the relationship between
-temperatures and yield. Herw we show how, despite this lack of data, we
+temperatures and yield. Here we show how, despite this lack of data, we
 may still be able to make assessments and produce useful projections for
 farmers and decision makers. With the right tools this data limitation
 does not need to hinder our abilities to assess the relationships
@@ -243,7 +243,7 @@ fits density curves using the \texttt{scatter.hist} function in the
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf}
+\includegraphics{Full_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf}
 \caption{\label{fig:chillscatter}Scatter plot of Chill Portions (x) and
 yield (y) for sweet cherries.}
 \end{figure}
@@ -251,9 +251,9 @@ yield (y) for sweet cherries.}
 We developed the \texttt{chillkernel} function to perform a
 two-dimensional kernel density estimation for yield and chill using the
 \texttt{kde2d} function in the \texttt{MASS} package (Ripley, 2019). The
-density function restricts the shape of the kernel to a bivariate normal
-kernel, so this looks slightly different compared to the scatter plot
-estimates above. The plot is made with the \texttt{filled.contour}
+density function restricts the shape of the kernel to a bi-variate
+normal kernel, so this looks slightly different compared to the scatter
+plot estimates above. The plot is made with the \texttt{filled.contour}
 function of the \texttt{graphics} package (R Core Team, 2019). In
 \texttt{chillkernel} the density (z) over the entire plot integrates to
 one, and therefore represents the relative probability of an observation
@@ -262,7 +262,7 @@ one, and therefore represents the relative probability of an observation
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf}
+\includegraphics{Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf}
 \caption{\label{fig:chillkernel}Density surface plot of Chill Portions
 (x) and yield (y) for sweet cherries. The legend shows the value for the
 estimated density (z).}
@@ -285,7 +285,7 @@ the value of expected chill for which to estimate yield should (the
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf}
+\includegraphics{Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf}
 \caption{\label{fig:chillkernelslice}Estimated yield of sweet cherry
 given the expected chill, based on a slice of `z' from the Kernel
 density.}
@@ -304,7 +304,7 @@ function in the \texttt{stats} package, after the Freedman-Diaconis rule
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf}
+\includegraphics{Full_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf}
 \caption{\label{fig:chillviolin}Violin plots with boxplot overlays of
 possible Chill Portions (x) and yield (y) with six different intervals
 of Chill Portions.}
@@ -318,7 +318,7 @@ We developed the \texttt{chillkernelslicerange} function to visualize
 the probable yield given a likely range of expected Chill Portions (Fig.
 \ref{fig:chillkernelslicerange}). The function takes the optimized
 interquartile ranges for chill intervals to select a range to slice from
-the density kernel \texttt{chillkernel} teh same procedures we used for
+the density kernel \texttt{chillkernel} the same procedures we used for
 a single chill value in \texttt{chillkernelslice} (Fig.
 \ref{fig:chillkernelslice}). As with \texttt{chillkernelslice} the
 probability values shown are relative, not absolute measures. They are
@@ -327,7 +327,7 @@ the result of cuts through the density kernel (Fig.
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf}
+\includegraphics{Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf}
 \caption{\label{fig:chillkernelslicerange}Probabilities (shown along the
 y-axis) for the expected yield (shown along the x-axis). Here we set the
 minimum Chill Portions to 53 and the maximum to 57.}
@@ -339,7 +339,7 @@ minimum Chill Portions to 53 and the maximum to 57.}
 We have demonstrated the possibility for generating forecasts of
 possible yields given chill. The \texttt{pasitR} functions closely
 follow chillR (Luedeling, 2019) and decisionSupport (Luedeling et al.,
-2019). We will continue to develop these and may intergrate them into
+2019). We will continue to develop these and may integrate them into
 future version of these packages. The functions are all stored in an
 open access repository (\url{https://github.com/hortibonn/pasitR}) and
 are free to use and modify (Schiffers et al., 2018).

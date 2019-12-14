@@ -1,0 +1,140 @@
+---
+title: "Chill Portions and yield using actual data"
+author: Katja Schiffers^a^, Cory Whitney^a^, Eduardo Fernandez^a^ and Eike Luedeling^a^ <br /> <small>^a^INRES-Horticultural Sciences, University of Bonn, Auf dem Huegel 6, 53121 Bonn, Germany <small/>
+output:
+  pdf_document: 
+    keep_tex: yes
+  html_document: default
+bibliography: packages.bib
+csl: acta-horticulturae.csl
+---
+
+<!-- Abstract for the IV International Symposium on Horticulture in Europe - SHE2020 https://www.actahort.org/members/symposiar?nr=507 
+-->
+
+<!-- Guidelines for authors: https://www.ishs.org/authors 
+and
+https://www.ishs.org/sites/default/files/page-documents/onlinesubmissionauthorsguide.pdf
+-->
+
+<!-- Spelling -->
+<!-- The ABC √ option (upper right on the Rmarkdown console)-->
+
+<!-- Grammar -->
+<!-- devtools::install_github("ropenscilabs/gramr") -->
+<!-- run_grammar_checker("HighDimensionalData.rmd”) -->
+
+<!-- Print pdf and word versions -->
+<!-- rmarkdown::render("Chill_Yield_Qta_data.Rmd", output_format = "pdf_document") -->
+<!-- rmarkdown::render("Chill_Yield_Qta_data.Rmd", output_format = "word_document") -->
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#packages in alphabetic order
+library(chillR)
+library(devtools)
+library(dplyr)
+library(ggplot2)
+library(ggstance)
+library(graphics)
+library(kableExtra)
+#devtools::install_github("hortibonn/pasitR")
+library(pasitR)
+library(plyr)
+library(tidyverse) #tidyverse includes a number of useful packages
+```
+
+```{r packages.bib, warning=FALSE, include = FALSE}
+#Automatically write R package citation entries to a .bib file
+knitr::write_bib(c(.packages(), 
+                   'chillR',
+                   'decisionSupport',
+                   'dplyr',
+                   'ggplot2', 
+                   'graphics',
+                   'pasitR',
+                   'plyr', 
+                   'tidyverse',
+                   'kableExtra',
+                   'MASS'), 'packages.bib')
+```
+
+Data is often limited for assessing the relationship between temperatures and yield. Here we show how, despite this lack of data, we may still be able to make assessments and produce useful projections for farmers and decision makers. With the right tools this data limitation does not need to hinder our abilities to assess the relationships between temperature and yield. For coarse assessments a lot of data may not be necessary. We use the pasitR package [@R-pasitR] in the R programming language [@R-base] to illustrate methods whereby we can embrace the inherent uncertainty in such assessments to overcome the need for preciseness. We show a potential method for dealing with important but also necessarily uncertain relationships in model forecasts. 
+
+## Yield and chill data
+
+We offer an example of assessing yield given chill (Chill Portions) for sweet cherries (*Prunus avium* L.) 'Lapins' and 'Brooks' varieties. We applied procedures from the `pasitR` library for estimating yield as a function of chill accumulation [@R-pasitR]. The data was provided by the experimental orchard of the School of Agronomy at the Pontificia Universidad Catolica de Valparaiso (Table 1). We used weather data obtained from a local weather station (Table 2). 
+
+We used the `tempResponse_daily_list` in the `chillR` package [@R-chillR] to compute the chill accumulation for each season. We defined the chilling season as the period between 1^st^ of May and 31^st^ of August (Table 3).
+
+```{r tables_1_3, echo = FALSE}
+#load data
+data <- read.csv("./data/Yield_and_Chill_Quillota.csv")
+weather <- read.csv("./data/weather_data.csv")[2:9]
+
+#Table 1
+knitr::kable(data, caption = "Yield records (in tons per hectare) for 8 seasons (2010 to 2017) for two sweet cherry cultivars (Lapins and Brooks).") %>% kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+#Table 2
+knitr::kable(head(weather, 10), caption = "Weather data from a weather station placed in the orchard.") %>% kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+chill <- chillR::tempResponse_daily_list(weather, latitude = -32.895, Start_JDay = 121, End_JDay = 243, models = list(Chill_Portions = Dynamic_Model))[[1]]
+
+#Table 3
+knitr::kable(chill, caption = "Computed chill accumulation for each pre-defined chilling season between May 1 and August 31.") %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), full_width = F)
+
+data["Chill_Portions"] <- chill$Chill_Portions
+
+```
+
+We developed the `chillscatter` function to create a scatter plot of chill and yield (Fig. \ref{fig:chillscatter}). The function calculates the associated estimated densities with loess smooth linear fits density curves using the `scatter.hist` function in the `plyr` package [@R-plyr]. 
+
+```{r chillscatter, echo = F, results = F, fig.width = 4, fig.height = 4, fig.show = "hold", fig.cap="\\label{fig:chillscatter}Scatter plot of Chill Portions (x) and yield (y) for sweet cherries."}
+pasitR::chillscatter(data$Chill_Portions, data$Yield)
+```
+
+We developed the `chillkernel` function to perform a two-dimensional kernel density estimation for yield and chill using the `kde2d` function in the `MASS` package [@R-MASS]. The density function restricts the shape of the kernel to a bi-variate normal kernel, so this looks slightly different compared to the scatter plot estimates above. The plot is made with the `filled.contour` function of the `graphics` package [@R-base]. In `chillkernel` the density (z) over the entire plot integrates to one, and therefore represents the relative probability of an observation (yield along y-axis) given a specific amount of chill (along x-axis) (Fig. \ref{fig:chillkernel}).
+
+
+```{r chillkernel, echo = F, results = F, fig.width = 4, fig.height = 4, fig.show = "hold", fig.cap="\\label{fig:chillkernel}Density surface plot of Chill Portions (x) and yield (y) for sweet cherries.  The legend shows the value for the estimated density (z)."}
+
+pasitR::chillkernel(data$Chill_Portions, data$Yield)
+
+```
+
+
+## Estimated yield given the expected chill
+
+We developed the `pasitR` function `chillkernelslice` to calculate the estimated yield given the expected chill, based on a slice of 'z' from the Kernel density calculated with `chillkernel` (Fig. \ref{fig:chillkernelslice}). The function plots the probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). Since this is a cut through the density kernel `chillkernel` (Fig. \ref{fig:chillkernel}), which integrates to 1, the probability values are relative, not absolute measures. We set the value of expected chill for which to estimate yield should (the `expectedchill` parameter) to 30.
+
+```{r chillkernelslice, echo = F, results = F, fig.width = 4, fig.height = 4, fig.cap="\\label{fig:chillkernelslice}Estimated yield of sweet cherry given the expected chill, based on a slice of 'z' from the Kernel density."}
+pasitR::chillkernelslice(data$Chill_Portions, data$Yield, expectedchill = 30)
+```
+
+## Chill portion intervals
+
+We developed the `chillviolin` function to determine possible Chill Portion intervals (Fig. \ref{fig:chillviolin}). We calculate the optimal interval width for Chill Portions using the `IQR` function in the `stats` package, after the Freedman-Diaconis rule (IQR = interquartile range) [@R-base]. The `chillviolin` function uses the `ggplot2` [@R-ggplot2] library.
+
+```{r chillviolin, echo = F, results = F, fig.width = 6, fig.height = 4, fig.cap= "\\label{fig:chillviolin}Violin plots with boxplot overlays of possible Chill Portions (x) and yield (y) with six different intervals of Chill Portions."}
+pasitR::chillviolin(data$Chill_Portions, data$Yield)
+```
+
+## Probability of yield given chill
+
+We developed the `chillkernelslicerange` function to visualize the probable yield given a likely range of expected Chill Portions (Fig. \ref{fig:chillkernelslicerange}). The function takes the optimized interquartile ranges for chill intervals to select a range to slice from the density kernel `chillkernel` the same procedures we used for a single chill value in `chillkernelslice` (Fig. \ref{fig:chillkernelslice}). As with `chillkernelslice` the probability values shown are relative, not absolute measures. They are the result of cuts through the density kernel (Fig. \ref{fig:chillkernel}), which integrates to 1. 
+
+```{r chillkernelslicerange, echo = F, results = F, fig.width = 4, fig.height = 4, fig.show = "hold", fig.cap= "\\label{fig:chillkernelslicerange}Probabilities (shown along the y-axis) for the expected yield (shown along the x-axis). Here we set the minimum Chill Portions to 53 and the maximum to 57."}
+
+pasitR::chillkernelslicerange(data$Chill_Portions, data$Yield, min_chill=53, max_chill=57)
+
+```
+
+
+# Next steps
+
+We have demonstrated the possibility for generating forecasts of possible yields given chill. The `pasitR` functions closely follow chillR [@R-chillR] and decisionSupport [@R-decisionSupport]. We will continue to develop these and may integrate them into future version of these packages. The functions are all stored in an open access repository (https://github.com/hortibonn/pasitR) and are free to use and modify [@R-pasitR]. 
+
+
+## References
