@@ -120,13 +120,13 @@ model forecasts.
 \hypertarget{yield-and-chill-data}{%
 \subsection{Yield and chill data}\label{yield-and-chill-data}}
 
-We offer an example of assessing yield given chill for sweet cherries
-(\emph{Prunus avium} L.) `Lapins' and `Brooks' varieties. We applied
-procedures from the \texttt{pasitR} library for estimating yield as a
-function of chill accumulation (Schiffers et al., 2018). The data was
-provided by the experimental orchard of the School of Agronomy at the
-Pontificia Universidad Catolica de Valparaiso (Table 1). We used weather
-data obtained from a local weather station (Table 2).
+We offer an example of assessing yield given chill (Chill Portions) for
+sweet cherries (\emph{Prunus avium} L.) `Lapins' and `Brooks' varieties.
+We applied procedures from the \texttt{pasitR} library for estimating
+yield as a function of chill accumulation (Schiffers et al., 2018). The
+data was provided by the experimental orchard of the School of Agronomy
+at the Pontificia Universidad Catolica de Valparaiso (Table 1). We used
+weather data obtained from a local weather station (Table 2).
 
 We used the \texttt{tempResponse\_daily\_list} in the \texttt{chillR}
 package (Luedeling, 2019) to compute the chill accumulation for each
@@ -235,111 +235,114 @@ Season & End\_year & Season\_days & Data\_days & Perc\_complete & Chill\_Portion
 \end{tabular}
 \end{table}
 
-We used the \texttt{chillscatter} function to create a scatter plot of
-Chill Portions and yield. We calculated the associated estimated
-densities with loess smooth linear fits density curves using the
-\texttt{scatter.hist} function in the \texttt{plyr} package (Wickham,
-2019).
+We developed the \texttt{chillscatter} function to create a scatter plot
+of chill and yield (Fig. \ref{fig:chillscatter}). The function
+calculates the associated estimated densities with loess smooth linear
+fits density curves using the \texttt{scatter.hist} function in the
+\texttt{plyr} package (Wickham, 2019).
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-2-1.pdf}
-\caption{Scatter plot of Chill Portions (x) and yield (y) for sweet
-cherries.}
+\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf}
+\caption{\label{fig:chillscatter}Scatter plot of Chill Portions (x) and
+yield (y) for sweet cherries.}
 \end{figure}
 
-We used \texttt{chillkernel} to perform a two-dimensional kernel density
-estimation for yield and chill using the \texttt{kde2d} function in the
-\texttt{MASS} package (Ripley, 2019). The density function restricts the
-shape of the kernel to a bivariate normal kernel, so this looks slightly
-different compared to the scatter plot estimates above.
+We developed the \texttt{chillkernel} function to perform a
+two-dimensional kernel density estimation for yield and chill using the
+\texttt{kde2d} function in the \texttt{MASS} package (Ripley, 2019). The
+density function restricts the shape of the kernel to a bivariate normal
+kernel, so this looks slightly different compared to the scatter plot
+estimates above. The plot is made with the \texttt{filled.contour}
+function of the \texttt{graphics} package (R Core Team, 2019). In
+\texttt{chillkernel} the density (z) over the entire plot integrates to
+one, and therefore represents the relative probability of an observation
+(yield along y-axis) given a specific amount of chill (along x-axis)
+(Fig. \ref{fig:chillkernel}).
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-3-1.pdf}
-\caption{Kernel density matrix of Chill Portions (x) and yield (y) for
-sweet cherries.}
+\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf}
+\caption{\label{fig:chillkernel}Density surface plot of Chill Portions
+(x) and yield (y) for sweet cherries. The legend shows the value for the
+estimated density (z).}
 \end{figure}
-
-\texttt{chillkernel} shows a density surface plot of Chill Portions (x)
-and yield (y). The legend shows the value for the estimated density (z).
-The plot is made with the \texttt{filled.contour} function of the
-\texttt{graphics} package (R Core Team, 2019).
-
-In \texttt{chillkernel} the density (z) over the entire plot integrates
-to one, and therefore represents the relative probability of an
-observation (yield along y-axis) given a specific chill portion (along
-x-axis).
 
 \hypertarget{estimated-yield-given-the-expected-chill}{%
 \subsection{Estimated yield given the expected
 chill}\label{estimated-yield-given-the-expected-chill}}
 
-We used the \texttt{pasitR} function \texttt{chillkernelslice} to
+We developed the \texttt{pasitR} function \texttt{chillkernelslice} to
 calculate the estimated yield given the expected chill, based on a slice
-of `z' from the Kernel density calculated with \texttt{chillkernel}. The
-\texttt{expectedchill} parameter is set to 30.
+of `z' from the Kernel density calculated with \texttt{chillkernel}
+(Fig. \ref{fig:chillkernelslice}). The function plots the probabilities
+(shown along the y-axis) for the expected yield (shown along the
+x-axis). Since this is a cut through the density kernel
+\texttt{chillkernel} (Fig. \ref{fig:chillkernel}), which integrates to
+1, the probability values are relative, not absolute measures. We set
+the value of expected chill for which to estimate yield should (the
+\texttt{expectedchill} parameter) to 30.
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-4-1.pdf}
-\caption{Estimated yield of sweet cherry given the expected chill, based
-on a slice of `z' from the Kernel density.}
+\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf}
+\caption{\label{fig:chillkernelslice}Estimated yield of sweet cherry
+given the expected chill, based on a slice of `z' from the Kernel
+density.}
 \end{figure}
-
-The \texttt{chillkernelslice} function plots the probabilities (shown
-along the y-axis) for the expected yield (shown along the x-axis). Since
-this is a cut through the density kernel \texttt{chillkernel}, which
-integrates to 1, the probability values are relative, not absolute
-measures.
 
 \hypertarget{chill-portion-intervals}{%
 \subsection{Chill portion intervals}\label{chill-portion-intervals}}
 
-We used the \texttt{chillviolin} function to determine possible Chill
-Portion intervals by calculating the optimal interval width for Chill
-Portions using the \texttt{IQR} function in the \texttt{stats} package,
-after the Freedman-Diaconis rule (IQR = interquartile range) (R Core
-Team, 2019). Plot made with \texttt{ggplot2} (Wickham et al., 2019).
+We developed the \texttt{chillviolin} function to determine possible
+Chill Portion intervals (Fig. \ref{fig:chillviolin}). We calculate the
+optimal interval width for Chill Portions using the \texttt{IQR}
+function in the \texttt{stats} package, after the Freedman-Diaconis rule
+(IQR = interquartile range) (R Core Team, 2019). The
+\texttt{chillviolin} function uses the \texttt{ggplot2} (Wickham et al.,
+2019) library.
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-5-1.pdf}
-\caption{Violin plots with boxplot overlays of possible Chill Portions
-(x) and yield (y) with six different intervals of Chill Portions.}
+\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf}
+\caption{\label{fig:chillviolin}Violin plots with boxplot overlays of
+possible Chill Portions (x) and yield (y) with six different intervals
+of Chill Portions.}
 \end{figure}
 
 \hypertarget{probability-of-yield-given-chill}{%
 \subsection{Probability of yield given
 chill}\label{probability-of-yield-given-chill}}
 
-We use the \texttt{chillkernelslicerange} to show the probable yield
-given a likely range of expected Chill Portions. The optimized
-interquartile ranges for Chill Portion intervals (shown in
-\texttt{chillviolin}) can be used to select a range to slice from the
-density kernel \texttt{chillkernel} as was done for a single chill value
-in \texttt{chillkernelslice}. As with \texttt{chillkernelslice} the
+We developed the \texttt{chillkernelslicerange} function to visualize
+the probable yield given a likely range of expected Chill Portions (Fig.
+\ref{fig:chillkernelslicerange}). The function takes the optimized
+interquartile ranges for chill intervals to select a range to slice from
+the density kernel \texttt{chillkernel} teh same procedures we used for
+a single chill value in \texttt{chillkernelslice} (Fig.
+\ref{fig:chillkernelslice}). As with \texttt{chillkernelslice} the
 probability values shown are relative, not absolute measures. They are
-the result of cuts through the density kernel \texttt{chillkernel},
-which integrates to 1.
+the result of cuts through the density kernel (Fig.
+\ref{fig:chillkernel}), which integrates to 1.
 
 \begin{figure}
 \centering
-\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-6-1.pdf}
-\caption{Probabilities (shown along the y-axis) for the expected yield
-(shown along the x-axis). Here we set the minimum Chill Portions to 53
-and the maximum to 57.}
+\includegraphics{Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf}
+\caption{\label{fig:chillkernelslicerange}Probabilities (shown along the
+y-axis) for the expected yield (shown along the x-axis). Here we set the
+minimum Chill Portions to 53 and the maximum to 57.}
 \end{figure}
 
 \hypertarget{next-steps}{%
 \section{Next steps}\label{next-steps}}
 
-The \texttt{pasitR} functions closely follow chillR (Luedeling, 2019)
-and decisionSupport (Luedeling et al., 2019). We will continue to
-develop these and may intergrate them into future version of these
-packages. The functions are all stored in an open access repository
-(\url{https://github.com/hortibonn/pasitR}) and are free to use and
-modify by all (Schiffers et al., 2018).
+We have demonstrated the possibility for generating forecasts of
+possible yields given chill. The \texttt{pasitR} functions closely
+follow chillR (Luedeling, 2019) and decisionSupport (Luedeling et al.,
+2019). We will continue to develop these and may intergrate them into
+future version of these packages. The functions are all stored in an
+open access repository (\url{https://github.com/hortibonn/pasitR}) and
+are free to use and modify (Schiffers et al., 2018).
 
 \hypertarget{references}{%
 \subsection*{References}\label{references}}
