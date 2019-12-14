@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  14 DEC 2019 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  14 DEC 2019 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Abstract_SHE_Chill_Yield_Model.tex
-(./Abstract_SHE_Chill_Yield_Model.tex
+**Full_SHE_Chill_Yield_Model.tex
+(./Full_SHE_Chill_Yield_Model.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -633,7 +633,7 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (./Abstract_SHE_Chill_Yield_Model.aux
+) (./Full_SHE_Chill_Yield_Model.aux
 
 LaTeX Warning: Label `tab:tables_1_3' multiply defined.
 
@@ -641,7 +641,7 @@ LaTeX Warning: Label `tab:tables_1_3' multiply defined.
 LaTeX Warning: Label `tab:tables_1_3' multiply defined.
 
 )
-\openout1 = `Abstract_SHE_Chill_Yield_Model.aux'.
+\openout1 = `Full_SHE_Chill_Yield_Model.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
 LaTeX Font Info:    ... okay on input line 104.
@@ -730,9 +730,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 104.
 LaTeX Info: Redefining \pageref on input line 104.
 LaTeX Info: Redefining \nameref on input line 104.
-(./Abstract_SHE_Chill_Yield_Model.out) (./Abstract_SHE_Chill_Yield_Model.out)
+(./Full_SHE_Chill_Yield_Model.out) (./Full_SHE_Chill_Yield_Model.out)
 \@outlinefile=\write3
-\openout3 = `Abstract_SHE_Chill_Yield_Model.out'.
+\openout3 = `Full_SHE_Chill_Yield_Model.out'.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -811,37 +811,37 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 134.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 134.
-<Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf, id=29, 2
-71.0125pt x 271.0125pt>
-File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf Grap
-hic file (type pdf)
-<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf>
-Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chil
-lscatter-1.pdf  used on input line 246.
+<Full_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf, id=29, 271.0
+125pt x 271.0125pt>
+File: Full_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf Graphic 
+file (type pdf)
+<use Full_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf>
+Package pdftex.def Info: Full_SHE_Chill_Yield_Model_files/figure-latex/chillsca
+tter-1.pdf  used on input line 246.
 (pdftex.def)             Requested size: 271.0201pt x 271.0201pt.
-<Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf, id=31, 27
-0.00874pt x 215.80624pt>
-File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf Graph
-ic file (type pdf)
-<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf>
-Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chil
-lkernel-1.pdf  used on input line 265.
+<Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf, id=31, 270.00
+874pt x 215.80624pt>
+File: Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf Graphic f
+ile (type pdf)
+<use Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf>
+Package pdftex.def Info: Full_SHE_Chill_Yield_Model_files/figure-latex/chillker
+nel-1.pdf  used on input line 265.
 (pdftex.def)             Requested size: 270.01219pt x 215.80899pt.
-<Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf, id=3
-4, 259.97125pt x 215.80624pt>
-File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf 
-Graphic file (type pdf)
-<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf>
-Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chil
-lkernelslice-1.pdf  used on input line 288.
+<Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf, id=34, 2
+59.97125pt x 215.80624pt>
+File: Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf Grap
+hic file (type pdf)
+<use Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf>
+Package pdftex.def Info: Full_SHE_Chill_Yield_Model_files/figure-latex/chillker
+nelslice-1.pdf  used on input line 288.
 (pdftex.def)             Requested size: 259.97061pt x 215.80571pt.
-<Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf, id=36, 41
-7.56pt x 280.04625pt>
-File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf Graph
-ic file (type pdf)
-<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf>
-Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chil
-lviolin-1.pdf  used on input line 307.
+<Full_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf, id=36, 417.56
+pt x 280.04625pt>
+File: Full_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf Graphic f
+ile (type pdf)
+<use Full_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf>
+Package pdftex.def Info: Full_SHE_Chill_Yield_Model_files/figure-latex/chillvio
+lin-1.pdf  used on input line 307.
 (pdftex.def)             Requested size: 417.57806pt x 280.05836pt.
 [1
 
@@ -876,10 +876,10 @@ l.327
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.327 
-       <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf>
- <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf>] [4pdf
-TeX warning (ext4): destination with the same identifier (name{figure.3}) has b
-een already used, duplicate ignored
+       <./Full_SHE_Chill_Yield_Model_files/figure-latex/chillscatter-1.pdf> <./
+Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernel-1.pdf>] [4pdfTeX warn
+ing (ext4): destination with the same identifier (name{figure.3}) has been alre
+ady used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
@@ -890,16 +890,16 @@ l.327
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.327 
-       <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.
-pdf> <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf>]
-<Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf,
- id=105, 289.08pt x 215.80624pt>
-File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1
-.pdf Graphic file (type pdf)
-<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.
-pdf>
-Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/chil
-lkernelslicerange-1.pdf  used on input line 330.
+       <./Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslice-1.pdf>
+ <./Full_SHE_Chill_Yield_Model_files/figure-latex/chillviolin-1.pdf>]
+<Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf, id=
+105, 289.08pt x 215.80624pt>
+File: Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf
+ Graphic file (type pdf)
+<use Full_SHE_Chill_Yield_Model_files/figure-latex/chillkernelslicerange-1.pdf>
+
+Package pdftex.def Info: Full_SHE_Chill_Yield_Model_files/figure-latex/chillker
+nelslicerange-1.pdf  used on input line 330.
 (pdftex.def)             Requested size: 289.0881pt x 215.81229pt.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 382.
 [5pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) 
@@ -908,14 +908,14 @@ has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.382 \end{document}
-                     <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/chill
-kernelslicerange-1.pdf>]
+                     <./Full_SHE_Chill_Yield_Model_files/figure-latex/chillkern
+elslicerange-1.pdf>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 382.
-(./Abstract_SHE_Chill_Yield_Model.aux)
+(./Full_SHE_Chill_Yield_Model.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 382.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 382.
-Package rerunfilecheck Info: File `Abstract_SHE_Chill_Yield_Model.out' has not 
-changed.
+Package rerunfilecheck Info: File `Full_SHE_Chill_Yield_Model.out' has not chan
+ged.
 (rerunfilecheck)             Checksum: 83C27C95D324197949892639B0EE036E;994.
 
 LaTeX Warning: There were multiply-defined labels.
@@ -923,13 +923,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 382.
  ) 
 Here is how much of TeX's memory you used:
- 14377 strings out of 492609
- 209410 string characters out of 6129048
- 346029 words of memory out of 5000000
+ 14373 strings out of 492609
+ 209234 string characters out of 6129048
+ 346082 words of memory out of 5000000
  17959 multiletter control sequences out of 15000+600000
- 66023 words of font info for 92 fonts, out of 8000000 for 9000
+ 65857 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,9n,38p,993b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,9n,38p,989b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2019/texmf-di
@@ -938,7 +938,7 @@ pe1/public/lm/lmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
 m/lmri10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/lo
 cal/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Abstract_SHE_Chill_Yield_Model.pdf (5 pages, 368473 bytes).
+Output written on Full_SHE_Chill_Yield_Model.pdf (5 pages, 368528 bytes).
 PDF statistics:
  166 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
