@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  14 DEC 2019 15:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  14 DEC 2019 15:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Chill_Yield_Qta_data.tex
-(./Chill_Yield_Qta_data.tex
+**Abstract_SHE_Chill_Yield_Model.tex
+(./Abstract_SHE_Chill_Yield_Model.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
@@ -633,7 +633,7 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (./Chill_Yield_Qta_data.aux
+) (./Abstract_SHE_Chill_Yield_Model.aux
 
 LaTeX Warning: Label `tab:tables_1_3' multiply defined.
 
@@ -641,7 +641,7 @@ LaTeX Warning: Label `tab:tables_1_3' multiply defined.
 LaTeX Warning: Label `tab:tables_1_3' multiply defined.
 
 )
-\openout1 = `Chill_Yield_Qta_data.aux'.
+\openout1 = `Abstract_SHE_Chill_Yield_Model.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
 LaTeX Font Info:    ... okay on input line 104.
@@ -730,9 +730,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 104.
 LaTeX Info: Redefining \pageref on input line 104.
 LaTeX Info: Redefining \nameref on input line 104.
-(./Chill_Yield_Qta_data.out) (./Chill_Yield_Qta_data.out)
+(./Abstract_SHE_Chill_Yield_Model.out) (./Abstract_SHE_Chill_Yield_Model.out)
 \@outlinefile=\write3
-\openout3 = `Chill_Yield_Qta_data.out'.
+\openout3 = `Abstract_SHE_Chill_Yield_Model.out'.
 
 (/usr/local/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -811,37 +811,37 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 134.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 134.
-<Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-2-1.pdf, id=28, 412.5412
-4pt x 415.5525pt>
-File: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-2-1.pdf Graphic fil
-e (type pdf)
-<use Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-
-2-1.pdf  used on input line 246.
+<Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-2-1.pdf, id=28
+, 412.54124pt x 415.5525pt>
+File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-2-1.pdf G
+raphic file (type pdf)
+<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unna
+med-chunk-2-1.pdf  used on input line 246.
 (pdftex.def)             Requested size: 412.54652pt x 415.55782pt.
-<Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-3-1.pdf, id=29, 414.5487
-5pt x 360.34625pt>
-File: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-3-1.pdf Graphic fil
-e (type pdf)
-<use Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-
-3-1.pdf  used on input line 259.
+<Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-3-1.pdf, id=29
+, 414.54875pt x 360.34625pt>
+File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-3-1.pdf G
+raphic file (type pdf)
+<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unna
+med-chunk-3-1.pdf  used on input line 259.
 (pdftex.def)             Requested size: 414.54773pt x 360.34537pt.
-<Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-4-1.pdf, id=30, 404.5112
-5pt x 360.34625pt>
-File: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-4-1.pdf Graphic fil
-e (type pdf)
-<use Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-
-4-1.pdf  used on input line 285.
+<Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-4-1.pdf, id=30
+, 404.51125pt x 360.34625pt>
+File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-4-1.pdf G
+raphic file (type pdf)
+<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unna
+med-chunk-4-1.pdf  used on input line 285.
 (pdftex.def)             Requested size: 404.51025pt x 360.34537pt.
-<Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-5-1.pdf, id=31, 417.56pt
- x 424.58624pt>
-File: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-5-1.pdf Graphic fil
-e (type pdf)
-<use Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-
-5-1.pdf  used on input line 307.
+<Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-5-1.pdf, id=31
+, 417.56pt x 424.58624pt>
+File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-5-1.pdf G
+raphic file (type pdf)
+<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unna
+med-chunk-5-1.pdf  used on input line 307.
 (pdftex.def)             Requested size: 417.57806pt x 424.60463pt.
 [1
 
@@ -870,29 +870,29 @@ er (name{figure.1}) has been already used, duplicate ignored
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.310 \end{figure}
-                   <./Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-2-1
-.pdf>] [4pdfTeX warning (ext4): destination with the same identifier (name{figu
-re.2}) has been already used, duplicate ignored
+                   <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed
+-chunk-2-1.pdf>] [4pdfTeX warning (ext4): destination with the same identifier 
+(name{figure.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.310 \end{figure}
-                   <./Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-3-1
-.pdf>] [5pdfTeX warning (ext4): destination with the same identifier (name{figu
-re.3}) has been already used, duplicate ignored
+                   <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed
+-chunk-3-1.pdf>] [5pdfTeX warning (ext4): destination with the same identifier 
+(name{figure.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.310 \end{figure}
-                   <./Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-4-1
-.pdf>]
-<Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-6-1.pdf, id=92, 404.5112
-5pt x 360.34625pt>
-File: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-6-1.pdf Graphic fil
-e (type pdf)
-<use Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-6-1.pdf>
-Package pdftex.def Info: Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-
-6-1.pdf  used on input line 328.
+                   <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed
+-chunk-4-1.pdf>]
+<Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-6-1.pdf, id=92
+, 404.51125pt x 360.34625pt>
+File: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-6-1.pdf G
+raphic file (type pdf)
+<use Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnamed-chunk-6-1.pdf>
+Package pdftex.def Info: Abstract_SHE_Chill_Yield_Model_files/figure-latex/unna
+med-chunk-6-1.pdf  used on input line 328.
 (pdftex.def)             Requested size: 404.51025pt x 360.34537pt.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
 [6] [7pdfTeX warning (ext4): destination with the same identifier (name{figure.
@@ -901,20 +901,21 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 379.
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.379 \end{document}
-                     <./Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-5
--1.pdf>] [8pdfTeX warning (ext4): destination with the same identifier (name{fi
-gure.5}) has been already used, duplicate ignored
+                     <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnam
+ed-chunk-5-1.pdf>] [8pdfTeX warning (ext4): destination with the same identifie
+r (name{figure.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.379 \end{document}
-                     <./Chill_Yield_Qta_data_files/figure-latex/unnamed-chunk-6
--1.pdf>]
+                     <./Abstract_SHE_Chill_Yield_Model_files/figure-latex/unnam
+ed-chunk-6-1.pdf>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 379.
-(./Chill_Yield_Qta_data.aux)
+(./Abstract_SHE_Chill_Yield_Model.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 379.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 379.
-Package rerunfilecheck Info: File `Chill_Yield_Qta_data.out' has not changed.
+Package rerunfilecheck Info: File `Abstract_SHE_Chill_Yield_Model.out' has not 
+changed.
 (rerunfilecheck)             Checksum: 83C27C95D324197949892639B0EE036E;994.
 
 LaTeX Warning: There were multiply-defined labels.
@@ -923,12 +924,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 379.
  ) 
 Here is how much of TeX's memory you used:
  14375 strings out of 492609
- 209011 string characters out of 6129048
- 344284 words of memory out of 5000000
+ 209341 string characters out of 6129048
+ 344334 words of memory out of 5000000
  17954 multiletter control sequences out of 15000+600000
  66070 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,9n,38p,983b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 33i,9n,38p,993b,383s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
 texlive/2019/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/20
 19/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2019/texmf-di
@@ -937,7 +938,7 @@ pe1/public/lm/lmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
 m/lmri10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/lo
 cal/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Chill_Yield_Qta_data.pdf (8 pages, 368913 bytes).
+Output written on Abstract_SHE_Chill_Yield_Model.pdf (8 pages, 369015 bytes).
 PDF statistics:
  175 PDF objects out of 1000 (max. 8388607)
  140 compressed objects within 2 object streams
