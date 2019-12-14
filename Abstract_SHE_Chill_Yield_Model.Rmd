@@ -1,5 +1,5 @@
 ---
-title: "Chill Portions and yield using actual data"
+title: "Estimating yield as a function of chill accumulation"
 author: Katja Schiffers^a^, Cory Whitney^a^, Eduardo Fernandez^a^ and Eike Luedeling^a^ <br /> <small>^a^INRES-Horticultural Sciences, University of Bonn, Auf dem Huegel 6, 53121 Bonn, Germany <small/>
 output:
   word_document: default

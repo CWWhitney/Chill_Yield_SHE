@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  14 DEC 2019 17:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.4)  14 DEC 2019 17:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -925,7 +925,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 382.
 Here is how much of TeX's memory you used:
  14373 strings out of 492609
  209234 string characters out of 6129048
- 346009 words of memory out of 5000000
+ 346082 words of memory out of 5000000
  17959 multiletter control sequences out of 15000+600000
  65857 words of font info for 90 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -938,7 +938,7 @@ pe1/public/lm/lmr7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/l
 m/lmri10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri12.p
 fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/lm/lmri8.pfb></usr/lo
 cal/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Full_SHE_Chill_Yield_Model.pdf (5 pages, 368413 bytes).
+Output written on Full_SHE_Chill_Yield_Model.pdf (5 pages, 368528 bytes).
 PDF statistics:
  166 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
